@@ -1,0 +1,28 @@
+2019-06-24 22:07:18,583 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-24 22:07:18.520653等待结束时间：2019-06-24 22:07:18.583053。等待时长为：0:00:00.062400
+2019-06-24 22:07:18,583 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-24 22:07:18,598 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('13760246701',)
+2019-06-24 22:07:18,823 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-24 22:07:18,845 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('python',)
+2019-06-24 22:07:18,954 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-24 22:07:18,976 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-24 22:07:19,140 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-24 22:07:19.089077等待结束时间：2019-06-24 22:07:19.139080。等待时长为：0:00:00.050003
+2019-06-24 22:07:53,553 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-24 22:07:53.506903等待结束时间：2019-06-24 22:07:53.553703。等待时长为：0:00:00.046800
+2019-06-24 22:07:53,569 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-24 22:07:53,569 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('18600000000',)
+2019-06-24 22:07:53,709 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-24 22:07:53,727 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('pthon',)
+2019-06-24 22:07:53,797 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-24 22:07:53,811 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-24 22:07:54,029 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-24 22:07:53.871518等待结束时间：2019-06-24 22:07:54.029527。等待时长为：0:00:00.158009
+2019-06-24 22:07:54,030 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录中间区域提示框 中的元素 ('xpath', '//div[@class="layui-layer-content"]') 
+2019-06-24 22:07:54,418 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="layui-layer-content"]') 的文本值为:此账号没有经过授权，请联系管理员!
+2019-06-24 22:08:05,278 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-24 22:08:05.247017等待结束时间：2019-06-24 22:08:05.278217。等待时长为：0:00:00.031200
+2019-06-24 22:08:05,278 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-24 22:08:05,293 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('18684720553',)
+2019-06-24 22:08:05,448 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-24 22:08:05,469 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('pthon111',)
+2019-06-24 22:08:05,580 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-24 22:08:05,601 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-24 22:08:05,883 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-24 22:08:05.711039等待结束时间：2019-06-24 22:08:05.882049。等待时长为：0:00:00.171010
+2019-06-24 22:08:05,884 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录中间区域提示框 中的元素 ('xpath', '//div[@class="layui-layer-content"]') 
+2019-06-24 22:08:05,931 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="layui-layer-content"]') 的文本值为:帐号或密码错误!

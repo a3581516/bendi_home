@@ -1,0 +1,10 @@
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-23 23:40:47.049099等待结束时间：2019-06-23 23:40:47.082101。等待时长为：0:00:00.033002
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('18600000000',)
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('pthon',)
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+INFO     test_UI.common.base_page:my_log.py:38  点击元素 ('tag name', 'button')
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-23 23:40:47.524127等待结束时间：2019-06-23 23:40:47.676135。等待时长为：0:00:00.152008
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录中间区域提示框 中的元素 ('xpath', '//div[@class="layui-layer-content"]') 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 ('xpath', '//div[@class="layui-layer-content"]') 的文本值为:此账号没有经过授权，请联系管理员!

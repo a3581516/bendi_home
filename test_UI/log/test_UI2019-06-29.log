@@ -1,0 +1,256 @@
+2019-06-29 00:15:38,777 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:15:38.735282等待结束时间：2019-06-29 00:15:38.775285。等待时长为：0:00:00.040003
+2019-06-29 00:15:38,778 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-29 00:15:38,791 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('13760246701',)
+2019-06-29 00:15:39,002 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-29 00:15:39,029 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('python',)
+2019-06-29 00:15:39,164 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-29 00:15:39,187 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-29 00:16:02,224 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:15:39.304315等待结束时间：2019-06-29 00:16:02.223626。等待时长为：0:00:22.919311
+2019-06-29 00:16:02,225 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 首页点击投标 中的元素 ('xpath', '//div//span[@class="fs-22"]') 
+2019-06-29 00:16:02,243 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('xpath', '//div//span[@class="fs-22"]')
+2019-06-29 00:17:06,595 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:17:07,109 - INFO - line:38 - test_UI.common.base_page - 日志信息: 网页截图成功。图片存储在：E:\lemon_py\test_UI\pictures/标页面剩余可投标金额_2019-06-29 00_17_06.png
+2019-06-29 00:18:01,281 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:18:05,303 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:18:17,780 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:18:23,789 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:18:36,030 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:18:42,035 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:18:52,335 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:18:58,355 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:19:06,594 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:19:12,597 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:19:20,874 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:19:24,885 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:19:37,210 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:19:43,234 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:24:15,839 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//input[@name="phone"]')
+2019-06-29 00:24:15,841 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:25:23,170 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:25:23.133241等待结束时间：2019-06-29 00:25:23.169243。等待时长为：0:00:00.036002
+2019-06-29 00:25:23,171 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-29 00:25:23,183 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('13760246701',)
+2019-06-29 00:25:23,310 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-29 00:25:23,327 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('python',)
+2019-06-29 00:25:23,426 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-29 00:25:23,445 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-29 00:25:46,242 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:25:23.506262等待结束时间：2019-06-29 00:25:46.241562。等待时长为：0:00:22.735300
+2019-06-29 00:25:46,243 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 首页点击投标 中的元素 ('xpath', '//div//span[@class="fs-22"]') 
+2019-06-29 00:25:46,261 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('xpath', '//div//span[@class="fs-22"]')
+2019-06-29 00:26:49,266 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:26:49,617 - INFO - line:38 - test_UI.common.base_page - 日志信息: 网页截图成功。图片存储在：E:\lemon_py\test_UI\pictures/标页面剩余可投标金额_2019-06-29 00_26_49.png
+2019-06-29 00:27:52,562 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:27:52,908 - INFO - line:38 - test_UI.common.base_page - 日志信息: 网页截图成功。图片存储在：E:\lemon_py\test_UI\pictures/标页面剩余可投标金额_2019-06-29 00_27_52.png
+2019-06-29 00:28:55,645 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:28:55,991 - INFO - line:38 - test_UI.common.base_page - 日志信息: 网页截图成功。图片存储在：E:\lemon_py\test_UI\pictures/标页面剩余可投标金额_2019-06-29 00_28_55.png
+2019-06-29 00:29:57,820 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:30:03,827 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:30:16,123 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:30:20,125 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:30:32,418 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:30:38,452 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:30:50,688 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:30:54,692 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:31:06,988 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:31:13,010 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:34:06,384 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:34:06.344661等待结束时间：2019-06-29 00:34:06.382663。等待时长为：0:00:00.038002
+2019-06-29 00:34:06,385 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-29 00:34:06,397 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('13760246701',)
+2019-06-29 00:34:06,521 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-29 00:34:06,543 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('python',)
+2019-06-29 00:34:06,637 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-29 00:34:06,655 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-29 00:34:29,930 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:34:06.729683等待结束时间：2019-06-29 00:34:29.929010。等待时长为：0:00:23.199327
+2019-06-29 00:34:29,931 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 首页点击投标 中的元素 ('xpath', '//div//span[@class="fs-22"]') 
+2019-06-29 00:34:29,950 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('xpath', '//div//span[@class="fs-22"]')
+2019-06-29 00:35:13,544 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:35:19,587 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:35:30,061 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:35:36,076 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:35:48,374 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:35:54,388 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:36:06,768 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:36:12,813 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:36:25,107 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:36:31,131 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:36:43,608 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:36:49,654 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:37:01,962 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:37:07,999 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:37:18,304 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 等待元素可见失败：('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]')
+2019-06-29 00:37:24,319 - ERROR - line:40 - test_UI.common.base_page - 日志信息: 网页截屏失败！
+2019-06-29 00:44:01,819 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:01.784753等待结束时间：2019-06-29 00:44:01.818755。等待时长为：0:00:00.034002
+2019-06-29 00:44:01,820 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+2019-06-29 00:44:01,831 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('13760246701',)
+2019-06-29 00:44:01,943 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+2019-06-29 00:44:01,962 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('python',)
+2019-06-29 00:44:02,047 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+2019-06-29 00:44:02,065 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('tag name', 'button')
+2019-06-29 00:44:25,011 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:02.168775等待结束时间：2019-06-29 00:44:25.010081。等待时长为：0:00:22.841306
+2019-06-29 00:44:25,013 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 首页点击投标 中的元素 ('xpath', '//div[2]//span[@class="fs-22"]') 
+2019-06-29 00:44:25,034 - INFO - line:38 - test_UI.common.base_page - 日志信息:  点击元素 ('xpath', '//div[2]//span[@class="fs-22"]')
+2019-06-29 00:44:48,040 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:48.000396等待结束时间：2019-06-29 00:44:48.039398。等待时长为：0:00:00.039002
+2019-06-29 00:44:48,041 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:44:48,070 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:44:48,071 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:44:48,103 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:44:48,138 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:48.103402等待结束时间：2019-06-29 00:44:48.137404。等待时长为：0:00:00.034002
+2019-06-29 00:44:48,139 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:44:48,157 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:44:48,177 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:48.157405等待结束时间：2019-06-29 00:44:48.177406。等待时长为：0:00:00.020001
+2019-06-29 00:44:48,178 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:44:48,189 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('10',)
+2019-06-29 00:44:48,303 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:44:48,707 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:48.425420等待结束时间：2019-06-29 00:44:48.706436。等待时长为：0:00:00.281016
+2019-06-29 00:44:48,708 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:44:48,744 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:投标金额必须为100的倍数
+2019-06-29 00:44:48,774 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:48.745439等待结束时间：2019-06-29 00:44:48.774440。等待时长为：0:00:00.029001
+2019-06-29 00:44:48,775 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:44:48,800 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:投标金额必须为100的倍数
+2019-06-29 00:44:48,822 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:44:48.800442等待结束时间：2019-06-29 00:44:48.821443。等待时长为：0:00:00.021001
+2019-06-29 00:44:48,823 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:44:48,844 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:44:48,845 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:44:48,868 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:45:11,695 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:11.659749等待结束时间：2019-06-29 00:45:11.694751。等待时长为：0:00:00.035002
+2019-06-29 00:45:11,695 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:45:11,727 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:45:11,728 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:45:11,764 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:45:11,794 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:11.764755等待结束时间：2019-06-29 00:45:11.794757。等待时长为：0:00:00.030002
+2019-06-29 00:45:11,795 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:45:11,814 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:45:11,836 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:11.814758等待结束时间：2019-06-29 00:45:11.835759。等待时长为：0:00:00.021001
+2019-06-29 00:45:11,837 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:45:11,848 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('12',)
+2019-06-29 00:45:11,925 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:45:12,022 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:11.996769等待结束时间：2019-06-29 00:45:12.021770。等待时长为：0:00:00.025001
+2019-06-29 00:45:12,024 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:45:12,050 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:45:12,052 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:45:12,073 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:45:34,864 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:34.830075等待结束时间：2019-06-29 00:45:34.864076。等待时长为：0:00:00.034001
+2019-06-29 00:45:34,865 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:45:34,894 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:45:34,895 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:45:34,927 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:45:34,957 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:34.927080等待结束时间：2019-06-29 00:45:34.956082。等待时长为：0:00:00.029002
+2019-06-29 00:45:34,958 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:45:34,975 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:45:34,995 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:34.976083等待结束时间：2019-06-29 00:45:34.995084。等待时长为：0:00:00.019001
+2019-06-29 00:45:34,996 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:45:35,007 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('aa~!@#$',)
+2019-06-29 00:45:35,154 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:45:35,219 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:35.195095等待结束时间：2019-06-29 00:45:35.218097。等待时长为：0:00:00.023002
+2019-06-29 00:45:35,220 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:45:35,242 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:45:35,243 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:45:35,266 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:45:57,955 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:57.918395等待结束时间：2019-06-29 00:45:57.954397。等待时长为：0:00:00.036002
+2019-06-29 00:45:57,956 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:45:57,986 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:45:57,987 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:45:58,021 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:45:58,050 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:58.021401等待结束时间：2019-06-29 00:45:58.049403。等待时长为：0:00:00.028002
+2019-06-29 00:45:58,051 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:45:58,068 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:45:58,089 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:58.068404等待结束时间：2019-06-29 00:45:58.088405。等待时长为：0:00:00.020001
+2019-06-29 00:45:58,090 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:45:58,101 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('100 123',)
+2019-06-29 00:45:58,209 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:45:58,297 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:45:58.274415等待结束时间：2019-06-29 00:45:58.296417。等待时长为：0:00:00.022002
+2019-06-29 00:45:58,298 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:45:58,321 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:45:58,322 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:45:58,342 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:46:21,215 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:21.180726等待结束时间：2019-06-29 00:46:21.214728。等待时长为：0:00:00.034002
+2019-06-29 00:46:21,216 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:46:21,245 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:46:21,246 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:46:21,279 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:46:21,310 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:21.279731等待结束时间：2019-06-29 00:46:21.309733。等待时长为：0:00:00.030002
+2019-06-29 00:46:21,311 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:46:21,328 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:46:21,349 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:21.329734等待结束时间：2019-06-29 00:46:21.348735。等待时长为：0:00:00.019001
+2019-06-29 00:46:21,350 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:46:21,361 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('-100',)
+2019-06-29 00:46:21,452 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:46:21,838 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:21.563748等待结束时间：2019-06-29 00:46:21.837763。等待时长为：0:00:00.274015
+2019-06-29 00:46:21,839 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:46:21,872 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:请正确填写投标金额
+2019-06-29 00:46:21,895 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:21.872765等待结束时间：2019-06-29 00:46:21.894766。等待时长为：0:00:00.022001
+2019-06-29 00:46:21,897 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:46:21,922 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:请正确填写投标金额
+2019-06-29 00:46:21,944 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:21.922768等待结束时间：2019-06-29 00:46:21.944769。等待时长为：0:00:00.022001
+2019-06-29 00:46:21,946 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:46:21,969 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:46:21,970 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:46:21,995 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:46:44,731 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:44.696071等待结束时间：2019-06-29 00:46:44.730073。等待时长为：0:00:00.034002
+2019-06-29 00:46:44,732 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:46:44,761 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:46:44,762 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:46:44,797 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:46:44,828 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:44.797076等待结束时间：2019-06-29 00:46:44.827078。等待时长为：0:00:00.030002
+2019-06-29 00:46:44,828 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:46:44,846 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:46:44,870 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:44.847079等待结束时间：2019-06-29 00:46:44.869081。等待时长为：0:00:00.022002
+2019-06-29 00:46:44,871 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:46:44,882 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('    ',)
+2019-06-29 00:46:44,977 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:46:45,318 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:45.082093等待结束时间：2019-06-29 00:46:45.317106。等待时长为：0:00:00.235013
+2019-06-29 00:46:45,319 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:46:45,352 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:请正确填写投标金额
+2019-06-29 00:46:45,375 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:45.352108等待结束时间：2019-06-29 00:46:45.375109。等待时长为：0:00:00.023001
+2019-06-29 00:46:45,376 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:46:45,401 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:请正确填写投标金额
+2019-06-29 00:46:45,424 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:46:45.401111等待结束时间：2019-06-29 00:46:45.423112。等待时长为：0:00:00.022001
+2019-06-29 00:46:45,425 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:46:45,447 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:46:45,448 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:46:45,470 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:47:08,198 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:08.162413等待结束时间：2019-06-29 00:47:08.197415。等待时长为：0:00:00.035002
+2019-06-29 00:47:08,198 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:47:08,228 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:47:08,229 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:47:08,263 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:47:08,295 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:08.264419等待结束时间：2019-06-29 00:47:08.294420。等待时长为：0:00:00.030001
+2019-06-29 00:47:08,296 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:47:08,312 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:47:08,332 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:08.312421等待结束时间：2019-06-29 00:47:08.331422。等待时长为：0:00:00.019001
+2019-06-29 00:47:08,333 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:47:08,344 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('0000',)
+2019-06-29 00:47:08,430 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:47:08,787 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:08.542435等待结束时间：2019-06-29 00:47:08.771448。等待时长为：0:00:00.229013
+2019-06-29 00:47:08,788 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:47:08,820 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:请正确填写投标金额
+2019-06-29 00:47:08,849 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:08.820450等待结束时间：2019-06-29 00:47:08.848452。等待时长为：0:00:00.028002
+2019-06-29 00:47:08,850 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:47:08,874 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:请正确填写投标金额
+2019-06-29 00:47:08,899 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:08.875454等待结束时间：2019-06-29 00:47:08.899455。等待时长为：0:00:00.024001
+2019-06-29 00:47:08,900 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:47:08,929 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:47:08,930 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:47:08,953 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:47:31,853 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:31.812766等待结束时间：2019-06-29 00:47:31.853768。等待时长为：0:00:00.041002
+2019-06-29 00:47:31,854 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:47:31,887 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:47:31,888 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:47:31,921 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万
+2019-06-29 00:47:31,952 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:31.921772等待结束时间：2019-06-29 00:47:31.951773。等待时长为：0:00:00.030001
+2019-06-29 00:47:31,953 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面获取用户可用余额 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:47:31,972 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 的属性 placeholder 值为:可用余额:13,134,679元
+2019-06-29 00:47:31,992 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:31.972775等待结束时间：2019-06-29 00:47:31.992776。等待时长为：0:00:00.020001
+2019-06-29 00:47:31,993 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面金额输入 中的元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 
+2019-06-29 00:47:32,007 - INFO - line:38 - test_UI.common.base_page - 日志信息:  给元素 ('xpath', '//input [@class="form-control invest-unit-investinput"]') 输入文本内容:('898999000.0',)
+2019-06-29 00:47:32,165 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面投标按钮 中的元素 ('xpath', '//button[@class="btn btn-special height_style"]') 
+2019-06-29 00:47:32,534 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:32.256791等待结束时间：2019-06-29 00:47:32.533807。等待时长为：0:00:00.277016
+2019-06-29 00:47:32,535 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:47:32,567 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:投标金额大于可用金额
+2019-06-29 00:47:32,589 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:32.567809等待结束时间：2019-06-29 00:47:32.588810。等待时长为：0:00:00.021001
+2019-06-29 00:47:32,590 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面输入错误弹框-文本 中的元素 ('xpath', '//div[@class="text-center"]') 
+2019-06-29 00:47:32,614 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="text-center"]') 的文本值为:投标金额大于可用金额
+2019-06-29 00:47:32,636 - INFO - line:38 - test_UI.common.base_page - 日志信息: 等待结束。等待开始时间：2019-06-29 00:47:32.615811等待结束时间：2019-06-29 00:47:32.635813。等待时长为：0:00:00.020002
+2019-06-29 00:47:32,637 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-数量 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 
+2019-06-29 00:47:32,673 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[2]') 的文本值为:89899.89
+2019-06-29 00:47:32,674 - INFO - line:38 - test_UI.common.base_page - 日志信息: 查找 标页面剩余可投标金额-单位 中的元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 
+2019-06-29 00:47:32,713 - INFO - line:38 - test_UI.common.base_page - 日志信息: 获取元素 ('xpath', '//div[@class="left fs-16 money_overplus"]/div[2]/span[3]') 的文本值为:万

@@ -1,0 +1,8 @@
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-23 23:40:12.636131等待结束时间：2019-06-23 23:40:12.677133。等待时长为：0:00:00.041002
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面输入用户名 中的元素 ('xpath', '//input[@name="phone"]') 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 ('xpath', '//input[@name="phone"]') 输入文本内容:('13760246701',)
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面输入密码 中的元素 ('xpath', '//input[@name="password"]') 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 ('xpath', '//input[@name="password"]') 输入文本内容:('python',)
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面点击登录 中的元素 ('tag name', 'button') 
+INFO     test_UI.common.base_page:my_log.py:38  点击元素 ('tag name', 'button')
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-23 23:40:13.170162等待结束时间：2019-06-23 23:40:13.225165。等待时长为：0:00:00.055003

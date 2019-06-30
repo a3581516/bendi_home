@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    var key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove("collapsed");
+    expandcollapse.classList.remove("expander");
+    expandcollapse.classList.add("collapser");
+}
+
+function hide_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add("collapsed");
+    expandcollapse.classList.remove("collapser");
+    expandcollapse.classList.add("expander");
+}
+
+function show_filters() {
+    var filter_items = document.getElementsByClassName('filter');
+    for (var i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
+        var extras = elem.parentNode.nextElementSibling;
+        var expandcollapse = document.createElement("span");
+        if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add("collapsed");
+            expandcollapse.classList.add("expander");
+        } else {
+            expandcollapse.classList.add("collapser");
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener("click", function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () {
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    toggle_sort_states(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener("click",
+                              function(event) {
+                                  sort_column(elem);
+                              }, false)
+    });
+
+};
+
+function sort_table(clicked, key_func) {
+    var rows = find_all('.results-table-row');
+    var reversed = !clicked.classList.contains('asc');
+    var sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    var thead = document.getElementById("results-table-head");
+    document.getElementById('results-table').remove();
+    var parent = document.createElement("table");
+    parent.id = "results-table";
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName("BODY")[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    var sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+    var multiplier = reversed ? -1 : 1;
+
+    sort_array.sort(function(a, b) {
+        var key_a = a[0];
+        var key_b = b[0];
+        return multiplier * (key_a >= key_b ? 1 : -1);
+    });
+
+    return sort_array.map(function(item) {
+        var index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+                       'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        var icon = document.createElement("div");
+        icon.className = "sort-icon";
+        icon.textContent = "vvv";
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove("desc", "active");
+        elem.classList.add("asc", "inactive");
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+  return value.hidden == false;
+}
+
+function filter_table(elem) {
+    var outcome_att = "data-test-result";
+    var outcome = elem.getAttribute(outcome_att);
+    class_outcome = outcome + " results-table-row";
+    var outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(var i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    var all_rows_hidden = rows.length == 0 ? true : false;
+    var not_found_message = document.getElementById("not-found-message");
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>reports.aaa.html</h1>
+    <p>Report generated on 29-Jun-2019 at 00:47:58 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>G:\jdk1.8.0_65</td></tr>
+      <tr>
+        <td>Packages</td>
+        <td>{&apos;pytest&apos;: &apos;4.5.0&apos;, &apos;py&apos;: &apos;1.8.0&apos;, &apos;pluggy&apos;: &apos;0.11.0&apos;}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Windows-7-6.1.7601-SP1</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;allure-pytest&apos;: &apos;2.6.5&apos;}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.7.2</td></tr></table>
+    <h2>Summary</h2>
+    <p>8 tests ran in 244.01 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">7 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th>Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data7]</td>
+          <td class="col-duration">0.90</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;test_UI.test_cases.test_invest_pytest.TestInvestFail object at 0x00000000041BA710&gt;<br/>wrong_data = {&#x27;check&#x27;: &#x27;投标失败，该标的每个用户限投50,000元! 您已投资900.00元，还可投资49100.00元&#x27;, &#x27;money&#x27;: &#x27;898999000.0&#x27;, &#x27;passwd&#x27;: &#x27;python&#x27;, &#x27;user&#x27;: &#x27;13760246701&#x27;}<br/>in_invest_page = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&quot;19491aff0f9fe09ef330b41bb03720cd&quot;)&gt;<br/><br/>    @pytest.mark.smoke<br/>    @pytest.mark.parametrize(&#x27;wrong_data&#x27;,bd.wrong_datas)<br/>    def test_invest_failed_wrong_format(self,wrong_data,in_invest_page):<br/>        print(bd.wrong_datas)<br/>    <br/>        bp = BidPage(in_invest_page)<br/>    <br/>        # 标页面 - 获取用户余额、获取标的可投金额<br/>        before_bid_money = bp.get_bid_left_money()<br/>        print(&#x27;投资前，标页面可投标金额：&#x27;, before_bid_money)<br/>        before_left_money = bp.get_user_left_money()<br/>        print(&#x27;投资前，标页面可用余额：&#x27;, before_left_money)<br/>    <br/>        # 标页面 - 投资操作<br/>        #eval（参数+1）   然后再转换会str写入 str(eval(wrong_data[&quot;money&quot;]))<br/>        if &#x27;before_bid_money+1&#x27; in wrong_data[&quot;money&quot;]:<br/>            wrong_data[&quot;money&quot;] = str(eval(wrong_data[&quot;money&quot;]))<br/>    <br/>        result = bp.invest(wrong_data[&quot;money&quot;])<br/>        #不能点击 没有弹框 就返回 输入框文本<br/>        if  result is not None:<br/>            res =  result<br/>        # 否则 出现弹框1 返回错误弹框文本<br/>        elif  bp.alter_wrong_text():<br/>            res =  bp.alter_wrong_text()<br/>        # 否则 出现弹框2 返回成功 弹框文本<br/>        else:<br/>            print(&#x27;错误格式，既然成功了...&#x27;,bp.alter_success_text())<br/>            res = False<br/>    <br/>        after_bid_moneyt = bp.get_bid_left_money()<br/>        # 提示信息对不对？？<br/>        print(&#x27;断言开始...&#x27;)<br/>&gt;       assert wrong_data[&quot;check&quot;] == res<br/><span class="error">E       AssertionError: assert &#x27;投标失败，该标的每个用户...还可投资49100.00元&#x27; == &#x27;投标金额大于可用金额&#x27;</span><br/><span class="error">E         - 投标失败，该标的每个用户限投50,000元! 您已投资900.00元，还可投资49100.00元</span><br/><span class="error">E         + 投标金额大于可用金额</span><br/><br/>test_invest_pytest.py:122: AssertionError<br/>------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:31.812766等待结束时间：2019-06-29 00:47:31.853768。等待时长为：0:00:00.041002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:31.921772等待结束时间：2019-06-29 00:47:31.951773。等待时长为：0:00:00.030001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:31.972775等待结束时间：2019-06-29 00:47:31.992776。等待时长为：0:00:00.020001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;898999000.0&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:32.256791等待结束时间：2019-06-29 00:47:32.533807。等待时长为：0:00:00.277016
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:投标金额大于可用金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:32.567809等待结束时间：2019-06-29 00:47:32.588810。等待时长为：0:00:00.021001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:投标金额大于可用金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:32.615811等待结束时间：2019-06-29 00:47:32.635813。等待时长为：0:00:00.020002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data0]</td>
+          <td class="col-duration">0.87</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log setup ------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:01.784753等待结束时间：2019-06-29 00:44:01.818755。等待时长为：0:00:00.034002
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面输入用户名 中的元素 (&#x27;xpath&#x27;, &#x27;//input[@name=&quot;phone&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input[@name=&quot;phone&quot;]&#x27;) 输入文本内容:(&#x27;13760246701&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面输入密码 中的元素 (&#x27;xpath&#x27;, &#x27;//input[@name=&quot;password&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input[@name=&quot;password&quot;]&#x27;) 输入文本内容:(&#x27;python&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 登录页面点击登录 中的元素 (&#x27;tag name&#x27;, &#x27;button&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  点击元素 (&#x27;tag name&#x27;, &#x27;button&#x27;)
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:02.168775等待结束时间：2019-06-29 00:44:25.010081。等待时长为：0:00:22.841306
+INFO     test_UI.common.base_page:my_log.py:38 查找 首页点击投标 中的元素 (&#x27;xpath&#x27;, &#x27;//div[2]//span[@class=&quot;fs-22&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  点击元素 (&#x27;xpath&#x27;, &#x27;//div[2]//span[@class=&quot;fs-22&quot;]&#x27;)------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:48.000396等待结束时间：2019-06-29 00:44:48.039398。等待时长为：0:00:00.039002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:48.103402等待结束时间：2019-06-29 00:44:48.137404。等待时长为：0:00:00.034002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:48.157405等待结束时间：2019-06-29 00:44:48.177406。等待时长为：0:00:00.020001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;10&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:48.425420等待结束时间：2019-06-29 00:44:48.706436。等待时长为：0:00:00.281016
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:投标金额必须为100的倍数
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:48.745439等待结束时间：2019-06-29 00:44:48.774440。等待时长为：0:00:00.029001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:投标金额必须为100的倍数
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:44:48.800442等待结束时间：2019-06-29 00:44:48.821443。等待时长为：0:00:00.021001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data1]</td>
+          <td class="col-duration">0.41</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:11.659749等待结束时间：2019-06-29 00:45:11.694751。等待时长为：0:00:00.035002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:11.764755等待结束时间：2019-06-29 00:45:11.794757。等待时长为：0:00:00.030002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:11.814758等待结束时间：2019-06-29 00:45:11.835759。等待时长为：0:00:00.021001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;12&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:11.996769等待结束时间：2019-06-29 00:45:12.021770。等待时长为：0:00:00.025001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data2]</td>
+          <td class="col-duration">0.44</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:34.830075等待结束时间：2019-06-29 00:45:34.864076。等待时长为：0:00:00.034001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:34.927080等待结束时间：2019-06-29 00:45:34.956082。等待时长为：0:00:00.029002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:34.976083等待结束时间：2019-06-29 00:45:34.995084。等待时长为：0:00:00.019001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;aa~!@#$&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:35.195095等待结束时间：2019-06-29 00:45:35.218097。等待时长为：0:00:00.023002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data3]</td>
+          <td class="col-duration">0.43</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:57.918395等待结束时间：2019-06-29 00:45:57.954397。等待时长为：0:00:00.036002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:58.021401等待结束时间：2019-06-29 00:45:58.049403。等待时长为：0:00:00.028002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:58.068404等待结束时间：2019-06-29 00:45:58.088405。等待时长为：0:00:00.020001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;100 123&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:45:58.274415等待结束时间：2019-06-29 00:45:58.296417。等待时长为：0:00:00.022002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data4]</td>
+          <td class="col-duration">0.82</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:21.180726等待结束时间：2019-06-29 00:46:21.214728。等待时长为：0:00:00.034002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:21.279731等待结束时间：2019-06-29 00:46:21.309733。等待时长为：0:00:00.030002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:21.329734等待结束时间：2019-06-29 00:46:21.348735。等待时长为：0:00:00.019001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;-100&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:21.563748等待结束时间：2019-06-29 00:46:21.837763。等待时长为：0:00:00.274015
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:请正确填写投标金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:21.872765等待结束时间：2019-06-29 00:46:21.894766。等待时长为：0:00:00.022001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:请正确填写投标金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:21.922768等待结束时间：2019-06-29 00:46:21.944769。等待时长为：0:00:00.022001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data5]</td>
+          <td class="col-duration">0.78</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:44.696071等待结束时间：2019-06-29 00:46:44.730073。等待时长为：0:00:00.034002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:44.797076等待结束时间：2019-06-29 00:46:44.827078。等待时长为：0:00:00.030002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:44.847079等待结束时间：2019-06-29 00:46:44.869081。等待时长为：0:00:00.022002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;    &#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:45.082093等待结束时间：2019-06-29 00:46:45.317106。等待时长为：0:00:00.235013
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:请正确填写投标金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:45.352108等待结束时间：2019-06-29 00:46:45.375109。等待时长为：0:00:00.023001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:请正确填写投标金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:46:45.401111等待结束时间：2019-06-29 00:46:45.423112。等待时长为：0:00:00.022001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_invest_pytest.py::TestInvestFail::test_invest_failed_wrong_format[wrong_data6]</td>
+          <td class="col-duration">0.79</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">------------------------------ Captured log call -------------------------------<br/>INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:08.162413等待结束时间：2019-06-29 00:47:08.197415。等待时长为：0:00:00.035002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:08.264419等待结束时间：2019-06-29 00:47:08.294420。等待时长为：0:00:00.030001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面获取用户可用余额 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 的属性 placeholder 值为:可用余额:13,134,679元
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:08.312421等待结束时间：2019-06-29 00:47:08.331422。等待时长为：0:00:00.019001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面金额输入 中的元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38  给元素 (&#x27;xpath&#x27;, &#x27;//input [@class=&quot;form-control invest-unit-investinput&quot;]&#x27;) 输入文本内容:(&#x27;0000&#x27;,)
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面投标按钮 中的元素 (&#x27;xpath&#x27;, &#x27;//button[@class=&quot;btn btn-special height_style&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:08.542435等待结束时间：2019-06-29 00:47:08.771448。等待时长为：0:00:00.229013
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:请正确填写投标金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:08.820450等待结束时间：2019-06-29 00:47:08.848452。等待时长为：0:00:00.028002
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面输入错误弹框-文本 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;text-center&quot;]&#x27;) 的文本值为:请正确填写投标金额
+INFO     test_UI.common.base_page:my_log.py:38 等待结束。等待开始时间：2019-06-29 00:47:08.875454等待结束时间：2019-06-29 00:47:08.899455。等待时长为：0:00:00.024001
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-数量 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[2]&#x27;) 的文本值为:89899.89
+INFO     test_UI.common.base_page:my_log.py:38 查找 标页面剩余可投标金额-单位 中的元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 
+INFO     test_UI.common.base_page:my_log.py:38 获取元素 (&#x27;xpath&#x27;, &#x27;//div[@class=&quot;left fs-16 money_overplus&quot;]/div[2]/span[3]&#x27;) 的文本值为:万</div></td></tr></tbody></table></body></html>
