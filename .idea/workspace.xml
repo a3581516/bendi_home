@@ -2,102 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f25f3e-d85b-4744-86b9-076ac5ff3b5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test_UI/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/a练习/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/a练习/login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/a练习/login_KTP.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/a练习/no_test_login_kpt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/a练习/web_0530_task.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/HTMLTestRunnerNew.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/base_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/base_test_cases.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/demo_re.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/dir_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/doExcel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/my_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/my_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/my_log.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/my_test_suite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/common/upload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/datas/Comm_Datas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/datas/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/datas/bid_datas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/datas/home_datas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/datas/login_datas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/log/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/log/test_UI.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/log/test_UI2019-06-23.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/log/test_UI2019-06-24.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/log/test_UI2019-06-28.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/log/test_UI2019-06-29.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/page_locators/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/page_locators/bid_page_locator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/page_locators/home_page_locator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/page_locators/login_page_locator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/page_locators/user_page_locator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pages_object/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pages_object/bid_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pages_object/home_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pages_object/login_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pages_object/user_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190615_233350_448371739468.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190616_000934_709870243585.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190616_005519_118879946405.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190616_193741_688581771742.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190616_221507_758425099506.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190617_004843_240214607197.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/20190617_005428_621648656095.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/主页我的账户_2019-06-23 02_10_40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/主页我的账户_2019-06-23 14_08_05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/主页我的账户_2019-06-23 14_31_25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/主页我的账户信息_2019-06-23 15_06_49.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/主页我的账户信息_2019-06-23 15_14_22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/主页我的账户信息_2019-06-23 15_26_04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面剩余可投标金额_2019-06-28 23_52_30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面剩余可投标金额_2019-06-28 23_59_29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面剩余可投标金额_2019-06-29 00_17_06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面剩余可投标金额_2019-06-29 00_26_49.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面剩余可投标金额_2019-06-29 00_27_52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面剩余可投标金额_2019-06-29 00_28_55.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面获取投标成功弹框文本_2019-06-23 16_31_59.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/pictures/标页面金额输入_2019-06-22 15_30_09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/aaa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/18dd083b-0afc-4828-83f9-dfac3fbd9d18-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/27b3334f-df8c-477e-93a1-4f8ee089c2b6-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/2cab5177-cfc7-4789-abc7-0d9b64c16982-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/4c4be8ed-2506-4a48-96ff-3935a0bc25bd-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/531883b4-59a0-4c20-b01b-287fe96b2fd3-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/548f79bb-b38d-48d4-85fc-36d4ca694daf-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/54c3951e-498f-4e20-834c-6f1e9da7b19b-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/60e7059b-5658-4d2b-a825-1a19da4d1e87-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/616ed615-d9e0-451d-b094-b2947781ef9e-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/779eb3e3-ca36-4010-8c35-25d331f8f6fd-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/7ec45750-7c23-4e75-a1d4-06731d17ce07-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/888eb4d0-8501-4e01-9e17-32d357f72da9-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/8ea5a090-e0f3-4a97-8e52-e9a0d44a6133-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/935acc3d-c30b-4c3e-ae18-7e63eb2c8efe-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/a60f80bd-b725-4d93-aac8-729bb7fa862e-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/c18dffa8-0209-443a-b426-e44ef1248216-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/caa221d4-191a-4085-94e7-e8cd2ef722a7-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/d1f7fbd2-6a86-4bca-9725-3e003172c58d-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/d3bd8829-8b0d-4f65-99cd-adce5ba69d3a-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/d96bc757-d258-4fdd-b9de-22162a6e2917-attachment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/e30e05ad-cfad-4128-a72c-853a5009b64e-result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/reports/allure_report/fe5a0090-bf4e-4508-8917-0fd269e04a0c-container.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/assets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/pytest.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/reports.aaa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/test_invest_pytest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/test_login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/unit_test_invest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_UI/test_cases/说明.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bendi_home.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_UI/test_cases/assets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_UI/test_cases/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_UI/test_cases/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_UI/test_cases/reports.aaa.html" beforeDir="false" afterPath="$PROJECT_DIR$/test_UI/test_cases/reports.aaa.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,10 +22,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_UI/test_cases/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="396">
               <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#86#95#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_UI/test_cases/conftest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-567">
+              <folding>
+                <element signature="e#46#99#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,6 +108,34 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bendi_home" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_UI/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_UI/test_cases/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -203,22 +154,37 @@
       <option name="project" value="LOCAL" />
       <updated>1561840308967</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="啦啦啦">
+      <created>1561895300334</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561895300334</updated>
+    </task>
+    <task id="LOCAL-00003" summary="啦啦啦">
+      <created>1561905461701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561905461701</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26041666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.49925596" weight="0.3289689" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.50074404" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -240,9 +206,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test_UI/test_cases/conftest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <folding>
+            <element signature="e#46#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_UI/test_cases/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="396">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#86#95#0" expanded="true" />
