@@ -7,9 +7,10 @@ import os
 import sys
 aa=sys.path.append('./')
 print(aa)
-# #
+# #python test_UI\test_cases\main.py
 import pytest
 os.system("pytest -m smoke -s --html=reports.aaa.html --alluredir=/reports/allure_report")
-pytest.main(['-m', 'smoke'])
-pytest.main(['-m','invest'])
+# pytest.main(['-m', 'smoke'])
+# pytest.main(['-m','invest'])
+# pytest.main()
 
