@@ -10,7 +10,7 @@ client==0.0.1
 colorama==0.4.1
 configparser==3.7.3
 ddt==1.2.1
-Django==2.0.13
+Django==2.2.10
 et-xmlfile==1.0.1
 Faker==1.0.6
 future==0.17.1
