@@ -26,7 +26,7 @@ pefile==2018.8.8
 pluggy==0.11.0
 post==2018.11.20
 public==2018.11.20
-py==1.8.0
+py==1.10.0
 PyInstaller==3.4
 PyMySQL==0.8.0
 pypiwin32==223
