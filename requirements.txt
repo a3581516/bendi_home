@@ -35,7 +35,7 @@ pytest-html==1.20.0
 pytest-metadata==1.8.0
 python-dateutil==2.7.5
 pytz==2018.9
-pywin32==224
+pywin32==301
 pywin32-ctypes==0.2.0
 query-string==2018.11.20
 requests==2.21.0
